@@ -1,0 +1,16 @@
+#navbar .linkQuestion{
+  background:url("images/back.png") no-repeat center;
+  min-width:80px;
+}
+#navbar .linkAdmin{
+  background:url("images/back.png") no-repeat center;
+  min-width:80px;
+}
+#navbar .linksettings{
+  background:url("images/back.png") no-repeat center;
+  min-width:80px;
+}
+.question_selection{
+  right:10;
+  
+}

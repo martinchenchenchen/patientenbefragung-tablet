@@ -1,0 +1,193 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<!DOCTYPE html>\n<html>\n	<head>\n    <title>jqmobi test</title>\n    <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\"> \n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, maximum-scale=1\">\n    <meta name=\"apple-mobile-web-app-capable\" content=\"yes\" />\n    <META HTTP-EQUIV=\"Pragma\" CONTENT=\"no-cache\">\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"css/jq.ui.css\" />\n    <style>\n  .scrollBar{background:white;}\n    h3 {text-align:center; font-size:35px;}\n    ul.iconLinks li {font-size:12px; font-weight:normal;}\n    .listbutton {\n        display:block;\n        border:1px solid black;\n        color:black;\n        background:orange;\n        border-radius:5px;\n        width:80%;\n        text-decoration:none;\n        text-align:center;\n        margin:auto;\n        margin-bottom:10px;\n        height:30px;\n        line-height:30px;\n    }\n    .class16 {\n        background:green;\n        color:red;\n    }\n  .jqmscrollBar {background:white !important;}  \n  pre{margin-left:-110px;}\n</style>\n<!-- uncomment for AppMobi apps\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"http://localhost:58888/_appMobi/appmobi.js\"></script> \n<script type=\"text/javascript\" charset=\"utf-8\" src=\"http://localhost:58888/_appMobi/xhr.js\"></script>   \n-->\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./jq.mobi.js\"></script> \n<!-- include touch.js on desktop browsers only -->\n<script>\nfunction loadedPanel(what){\n  console.log(\"loaded \"+what.id);\n  }\nfunction unloadedPanel(what){\n  console.log(\"unloaded \"+what.id);\n  }\nif(!((window.DocumentTouch&&document instanceof DocumentTouch)||'ontouchstart' in window)){\n  var script=document.createElement(\"script\");\n  script.src=\"touch.js\";\n  var tag=$(\"head\").append(script);\n  $.os.android=true; //let's make it run like an android device\n  $.os.desktop=true;\n}\n</script>\n\n\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./plugins/jq.swipe.js\"></script> \n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./plugins/jq.template.js\"></script> \n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./plugins/jq.carousel.js\"></script> \n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./plugins/jq.css3animate.js\"></script> \n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./plugins/jq.drawer.js\"></script> \n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./plugins/jq.passwordBox.js\"></script> \n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./plugins/jq.scroller.js\"></script> \n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./plugins/jq.shake.js\"></script> \n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./plugins/jq.selectBox.js\"></script> \n\n<script type=\"text/javascript\" charset=\"utf-8\" src=\"./ui/jq.ui.js\"></script> \n\n<script type=\"text/javascript\">\n    /* This function runs once the page is loaded, but appMobi is not yet active */\n  //var webRoot=\"./kitchensink/\";\n  $.ui.autoLaunch=false;\n    var init = function(){\n     $.ui.backButtonText=\"Back\";  \n     window.setTimeout(function(){$.ui.launch();},1500);\n       //$.ui.removeFooterMenu(); This would remove the bottom nav menu\n    };\n    document.addEventListener(\"DOMContentLoaded\",init,false);  \n  \n    /* This code prevents users from dragging the page */\n    var preventDefaultScroll = function(event) {\n        event.preventDefault();\n        window.scroll(0,0);\n        return false;\n    };\n  \n  document.addEventListener('touchmove', preventDefaultScroll, false);\n\n    /* This code is used to run as soon as appMobi activates */\n    var onDeviceReady=function(){\n      AppMobi.device.setRotateOrientation(\"portrait\");\n      AppMobi.device.setAutoRotate(false);\n      webRoot=AppMobi.webRoot+\"kitchensink/\";\n      //hide splash screen\n      AppMobi.device.hideSplashScreen();  \n    \n    };\n    document.addEventListener(\"appMobi.device.ready\",onDeviceReady,false);    \n    function showHide(obj,objToHide){\n      var el=$(\"#\"+objToHide)[0];\n      \n      if(obj.className==\"expanded\"){\n        obj.className=\"collapsed\";\n      }else{\n        obj.className=\"expanded\";\n      }\n      $(el).toggle();\n    \n    }\n  \n</script>\n\n\n<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXx-->\n	</head>\n	<body>\n    <div id=\"jQUi\">\n    <!--appstart image-->\n      <div id=\"splashscreen\" class='ui-loader'>\n        <img src=\"css/images/splash.png\">\n        <br><br>\n        <span class='ui-icon ui-icon-loading spin'></span><h1 >Starting app</h1>\n      </div>\n      <div id=\"header\">\n\n      </div>\n\n      <div id=\"content\">\n      <!--through the selected it is the mainpage-->\n        <div title='Welcome' id=\"main\" class=\"panel\" selected=\"true\" >\n          welcome\n        </div>\n        <!--the sites must be class panel-->\n        <div class=\"panel\" id=\"seite1\">\n          test\n        </div>\n        <div class=\"panel\" id=\"seite2\" data-footer=\"footeradmin\">\n          test2\n        </div>\n      </div>\n      <!--onload navbar-->\n      <div id=\"navbar\">\n        <a href=\"#seite1\" class=\"questioning\" data-transition=\"none\">Befragung</a>\n        <a href=\"#seite2\" data-transition=\"none\">Befragung</a>\n      </div>\n      <!--footer are special navbars each panel can get one--> \n      <footer id=\"footeradmin\">\n        <a href=\"#seite1\" data-transition=\"none\">Befragung</a>\n        <a href=\"#seite2\" data-transition=\"none\">Befragung</a>\n        <a href=\"#seite1\" data-transition=\"none\">Befragung</a>\n        <a href=\"#seite2\" data-transition=\"none\">Befragung</a>\n      </footer> \n    </div>\n	</body>\n</html>\n\n",
+			"file": "index.html",
+			"file_size": 5520,
+			"file_write_time": 129738787547644522,
+			"settings":
+			{
+				"buffer_size": 5495,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Paula/Desktop/praktikum 3.0/patientenbefragung/touch.js",
+		"/C/Users/Paula/Desktop/praktikum 3.0/jQ.Mobi/defer/index.html",
+		"/C/Users/Paula/Desktop/praktikum 3.0/jQ.Mobi/index.html",
+		"/C/Users/Paula/Desktop/praktikum 3.0/jQ.Mobi/kitchensink/external.html",
+		"/C/Users/Paula/Desktop/praktikum 3.0/Sublime Text 2 Build 2165/Data/Packages/Default/Base File.sublime-settings",
+		"/C/Users/Paula/Desktop/praktikum 3.0/Sublime Text 2 Build 2165/Data/Packages/User/Distraction Free.sublime-settings",
+		"/C/Users/Paula/Desktop/praktikum 3.0/Sublime Text 2 Build 2165/Data/Packages/User/HTML.sublime-settings",
+		"/C/Users/Paula/Desktop/praktikum 3.0/Sublime Text 2 Build 2165/Data/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/Paula/Desktop/praktikum 3.0/Sublime Text 2 Build 2165/Data/Packages/Default/Global.sublime-settings"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"footerui",
+			"back",
+			"jqm1",
+			"selector",
+			"#uiapi",
+			"#jqmui",
+			"footerui",
+			"footerui2",
+			"footerui",
+			"footer",
+			"jqm23",
+			"f1"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 5495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4227,
+								4227
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2160.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 210.0,
+	"status_bar_visible": true
+}
